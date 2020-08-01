@@ -20,37 +20,41 @@ public class SnakeAndLadder {
 
 	//function to start the game
 	public void startGame() {
-		System.out.println("Let's start the game!");
-		//rolling a dice
-		int diceRoll = this.rollDice();
-		System.out.println("Dice roll: "+ diceRoll);
-		//getting position of the user
-		int position = this.getUserPosition();
-		position += diceRoll;
-		System.out.println("The position of the player is: "+ position);
-		//Calling to check with the option
-		int option = this.checkOption();
-		switch (option)
+		//iterate till the player reaches position100
+		while(this.getUserPosition() < 100)
 		{
-			case 0 :
-				System.out.println("No Play");
-				position += 0;
-				this.setUserPosition(position);
-				break;
-			case 1 :
-				System.out.println("Ladder");
-				position += diceRoll;
-				this.setUserPosition(position);
-				break;
-			case 2 :
-				System.out.println("Snake Bite");
-				position -= diceRoll;
-				this.setUserPosition(position);
-				break;
-			default :
-				System.out.println("Invalid option");
+			System.out.println("Let's start the game!");
+			//rolling a dice
+			int diceRoll = this.rollDice();
+			System.out.println("Dice roll: "+ diceRoll);
+			//getting position of the user
+			int position = this.getUserPosition();
+			position += diceRoll;
+			System.out.println("The position of the player is: "+ position);
+			//Calling to check with the option
+			int option = this.checkOption();
+			switch (option)
+			{
+				case 0 :
+					System.out.println("No Play");
+					position += 0;
+					this.setUserPosition(position);
+					break;
+				case 1 :
+					System.out.println("Ladder");
+					position += diceRoll;
+					this.setUserPosition(position);
+					break;
+				case 2 :
+					System.out.println("Snake Bite");
+					position -= diceRoll;
+					this.setUserPosition(position);
+					break;
+				default :
+					System.out.println("Invalid option");
+			}
+			System.out.println("The position of the player is: "+ this.getUserPosition());
 		}
-		System.out.println("The position of the player is: "+ this.getUserPosition());
 	}
 
 	/**
