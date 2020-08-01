@@ -20,16 +20,24 @@ public class SnakeAndLadder {
 
 	//function to start the game
 	public void startGame() {
+		System.out.println("Let's start the game!");
 		//iterate till the player reaches position100
 		while(this.getUserPosition() < 100)
 		{
-			System.out.println("Let's start the game!");
 			//rolling a dice
 			int diceRoll = this.rollDice();
 			System.out.println("Dice roll: "+ diceRoll);
 			//getting position of the user
 			int position = this.getUserPosition();
 			position += diceRoll;
+			//To check if the player reached the winning position
+			if (position > 100)
+				continue;
+			if (position == 100)
+			{
+				System.out.println("Hurray! You Won the game.");
+				break;
+			}
 			System.out.println("The position of the player is: "+ position);
 			//Calling to check with the option
 			int option = this.checkOption();
@@ -42,9 +50,12 @@ public class SnakeAndLadder {
 					break;
 				case 1 :
 					System.out.println("Ladder");
-					position += diceRoll;
-					this.setUserPosition(position);
-					break;
+						if(position < 100)
+						{
+						position += diceRoll;
+						this.setUserPosition(position);
+						break;
+						}
 				case 2 :
 					System.out.println("Snake Bite");
 					position -= diceRoll;
@@ -53,7 +64,7 @@ public class SnakeAndLadder {
 				default :
 					System.out.println("Invalid option");
 			}
-			System.out.println("The position of the player is: "+ this.getUserPosition());
+			System.out.println("Now the position of the player is: "+ this.getUserPosition());
 		}
 	}
 
