@@ -1,4 +1,5 @@
 package SnakeAndLadder;
+import java.util.*;
 
 public class SnakeAndLadder {
 
@@ -7,5 +8,13 @@ public class SnakeAndLadder {
 
 	public static void main(String args[]) {
 		SnakeAndLadder player1 = new SnakeAndLadder();
+		System.out.println(player1.rollDice());
+	}
+
+	//function for rolling a dice
+	public int rollDice() {
+		Random rand = new Random();
+		int diceRoll = rand.nextInt(6) + 1;
+		return diceRoll;
 	}
 }
