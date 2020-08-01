@@ -5,6 +5,8 @@ public class SnakeAndLadder {
 
 	//initialized player1 at position 0
 	private int userPosition = 0;
+	//intialize count to keep check on no. of throws to win the game
+	private int count = 0;
 
 	public static void main(String args[]) {
 		SnakeAndLadder player1 = new SnakeAndLadder();
@@ -26,7 +28,9 @@ public class SnakeAndLadder {
 		{
 			//rolling a dice
 			int diceRoll = this.rollDice();
+			this.setCount(this.getCount() + 1);
 			System.out.println("Dice roll: "+ diceRoll);
+			System.out.println("Number of throws to win : "+ this.getCount());
 			//getting position of the user
 			int position = this.getUserPosition();
 			position += diceRoll;
@@ -85,6 +89,16 @@ public class SnakeAndLadder {
 			userPosition = 0;
 		}
 		this.userPosition = userPosition;
+	}
+
+	//@return the count
+	public int getCount() {
+		return count;
+	}
+
+	//@param to set the count value
+	public void setCount(int count) {
+		this.count = count;
 	}
 
 	/**
