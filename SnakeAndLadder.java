@@ -36,6 +36,7 @@ class SnakeNLadder {
 		int diceValue = 0;
 		int playAgain = 0;
 		int player = 0;
+		int count = 0;
 		//Iterate till it reaches winning point
 		while(player < WINPOINT)
 		{
@@ -50,6 +51,8 @@ class SnakeNLadder {
 				//User input "r" enters here to get check
 				str = s.next();
 				diceValue = rollDice();
+				count += 1;
+				System.out.println("Total no. of throws: "+ count);
 				//Checks player1 = -1,player2 = 1
 				if(currentPlayer == -1)
 				{
