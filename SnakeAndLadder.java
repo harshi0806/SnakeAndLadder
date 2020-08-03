@@ -39,6 +39,8 @@ class SnakeNLadder {
 		//Iterate till it reaches winning point
 		while(player < WINPOINT)
 		{
+			if(player > WINPOINT)
+				continue;
 			do
 			{
 				//ternary operator used to ask which player turn
@@ -82,12 +84,6 @@ class SnakeNLadder {
 	  */
 	public int calculatePlayerValue(int player, int diceValue)
 	{
-		if(player > WINPOINT)
-		{
-			player = player - diceValue;
-			return player;
-		}
-
 		//Calling to check with the option
 		int option = this.checkOption();
 		switch (option)
